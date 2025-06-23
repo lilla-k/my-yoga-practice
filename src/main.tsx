@@ -6,6 +6,7 @@ import { createRoot } from 'react-dom/client';
 import Root from './components/Root/Root.tsx';
 import Categories from './components/Categories/Categories.jsx';
 import YogaPoses from './components/YogaPoses/YogaPoses.jsx';
+import CreatePose from './components/CreatePose/CreatePose.jsx';
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,8 @@ const router = createBrowserRouter([
     Component: Root,
     children: [
       { path: "/", Component: Categories },
-      { path: "yoga-poses", Component: YogaPoses },
+      { path: "yoga_poses", Component: YogaPoses },
+      { path: "add_pose", Component: CreatePose },
     ]
   },
 ]);

@@ -28,7 +28,7 @@
     gap: 40px;
 }
 
-.tooltip:hover {
+.Header-navbar:hover{
     cursor: pointer;
 }
 
