@@ -1,16 +1,21 @@
+import { Link } from "react-router";
+import Tooltip from '@mui/material/Tooltip';
+import SearchIcon from '@mui/icons-material/Search';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import PersonIcon from '@mui/icons-material/Person';
 import './Header.css';
 
 function Header() {
     return(
         <div className="Header">
-            <div className="Header-title">
+            <Link to="/" className="Header-title">
                 <img className="Header-logo" src="/lotus_logo.png"/>
                 My Yoga Practice
-            </div>
+            </Link>
             <div className="Header-navbar">
-                <div>Home</div>
-                <div>Explore</div>
-                <div>New</div>
+                <Tooltip title="Search" className="tooltip"><SearchIcon/></Tooltip>
+                <Tooltip title="Create" className="tooltip"><AddCircleOutlineIcon/></Tooltip>
+                <Tooltip title="Profile" className="tooltip"><PersonIcon/></Tooltip>
             </div>
         </div>
     )
