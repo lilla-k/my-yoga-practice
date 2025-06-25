@@ -1,8 +1,14 @@
+import { useParams } from 'react-router';
+
 function YogaPoses(){
+
+    const {category} = useParams();
+
 
     return(
         <div>
-            Poses list
+            <div>Poses</div>
+            <div>{category}</div>
         </div>
     )
 }
