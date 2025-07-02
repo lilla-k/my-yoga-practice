@@ -20,8 +20,6 @@ function YogaPoses() {
             <Tabs
                 value={category}
                 onChange={(e:  React.SyntheticEvent, newValue: string) => navigate(`/yoga-poses/${newValue}`)}
-                textColor="secondary"
-                indicatorColor="secondary"
                 aria-label="secondary tabs example"
             >
                 {categories.map(c =>
