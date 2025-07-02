@@ -8,11 +8,13 @@ import Categories from './components/Categories/Categories.jsx';
 import YogaPoses from './components/YogaPoses/YogaPoses.jsx';
 import CreatePose from './components/CreatePose/CreatePose.jsx';
 import { ThemeProvider } from '@mui/material/styles';
-import theme from './utils/theme.ts'
+import theme from './utils/theme.ts';
+import ErrorPage from './components/ErrorPage/ErrorPage.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
+    ErrorBoundary: ErrorPage,
     Component: Root,
     children: [
       { path: "/", Component: Categories },
