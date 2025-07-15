@@ -1,0 +1,78 @@
+.CreatePose{
+    max-width: 820px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.CreatePose > div{
+    width: 300px;
+    margin: 20px 0;
+    background-color: var(--main-color);
+}
+
+.CreatePose-title{
+    margin: 40px 0;
+}
+
+.CreatePose-imageSelectorContainer{
+    min-width: 100%;
+    padding: 5px;
+    height: 250px;
+    position: relative;
+    border-radius: 1px;
+    border: 1px solid var(--light-text-color);
+}
+.CreatePose-fileInput{
+    opacity: 0;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.CreatePose-fileInput:hover{
+    cursor: pointer;
+}
+.CreatePose-imageSelectorButton{
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.CreatePose-imagePreviewContainer{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.CreatePose-imageContent{
+    width: fit-content;
+    position: relative;
+    height: 100%;
+
+}
+.CreatePose-image{
+    display: block;
+    height: 100%;
+    
+}
+.CreatePose-imageCloseBtn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 36px;
+    width: 36px;
+    padding: 5px;
+    border: white;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#CreatePose-uploadBtn{
+    margin: 50px;
+    width: 150px;
+    align-self: center;
+}

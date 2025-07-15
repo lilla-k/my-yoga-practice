@@ -1,14 +1,9 @@
 import { Link } from 'react-router';
 import './Categories.css';
+import categories from '../../categories.ts';
 
 function Categories() {
 
-    const categories = [
-        { name: "sitting", image: "/Copilot_sitting_illustration.png" },
-        { name: "standing", image: "/Copilot_standing_illustration.png" },
-        { name: "supine", image: "/Copilot_supine_illustration.png" },
-        { name: "inversion", image: "/Copilot_inversion_illustration.png" }
-    ]
     return (
         <div className="Categories">
             <h1 className="Categories-title">Categories</h1>
