@@ -7,30 +7,52 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import categories from '../../categories.ts';
+import yogaPoseServices from '../../services/yogaPoseService.ts'
 import './CreatePose.css';
 
 function CreatePose() {
 
     console.log(categories)
 
-    // const [poseName, setPoseName] = useState('');
+    const [poseName, setPoseName] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
-    // const [description, setDescription] = useState('');
+    const [description, setDescription] = useState('');
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
-          setSelectedImage(file);
-          setPreviewUrl(URL.createObjectURL(file)); // shows a preview
+            setSelectedImage(file);
+            setPreviewUrl(URL.createObjectURL(file)); // shows a preview
         }
-      };
+    };
+
+    const yogaPoseData = {
+        poseName: poseName,
+        category: selectedCategory,
+        description: description
+    }
+
+    console.log(yogaPoseData)
+
+    async function uploadData() {
+        console.log("run uploadData function")
+        const yogaPoseId = await yogaPoseServices.postYogaPose(yogaPoseData, selectedImage);
+        console.log("data uploaded with id:" + yogaPoseId);
+    }
 
     return (
         <div className="CreatePose">
             <h1 className="CreatePose-title">Add pose</h1>
-            <TextField label="Pose Name" variant="outlined" color="primary" size="small" />
+            <TextField
+                label="Pose name"
+                variant="outlined"
+                color="primary"
+                size="small"
+                onChange={(event) => setPoseName(event.target.value)}
+                value={poseName}
+            />
             <FormControl size="small">
                 <InputLabel>Category</InputLabel>
                 <Select
@@ -47,20 +69,22 @@ function CreatePose() {
                 multiline
                 rows={4}
                 sx={{ minWidth: "100%" }}
+                onChange={(event) => setDescription(event.target.value)}
+                value={description}
             />
             <div className="CreatePose-imageSelectorContainer">
                 {!previewUrl && <Button variant="outlined" className="CreatePose-imageSelectorButton">+ Upload image</Button>}
-                {!previewUrl && <input className="CreatePose-fileInput" type="file" onChange={handleImageChange} /> }
-                {previewUrl && 
-                <div className="CreatePose-imagePreviewContainer">
-                    <div className="CreatePose-imageContent">
-                        <img src={previewUrl} alt="preview" className="CreatePose-image" />
-                        <button className="CreatePose-imageCloseBtn" type="button" onClick={()=>setPreviewUrl(null)}><CloseIcon/></button>
+                {!previewUrl && <input className="CreatePose-fileInput" type="file" onChange={handleImageChange} />}
+                {previewUrl &&
+                    <div className="CreatePose-imagePreviewContainer">
+                        <div className="CreatePose-imageContent">
+                            <img src={previewUrl} alt="preview" className="CreatePose-image" />
+                            <button className="CreatePose-imageCloseBtn" type="button" onClick={() => setPreviewUrl(null)}><CloseIcon /></button>
+                        </div>
                     </div>
-                </div>
                 }
             </div>
-            <Button id="CreatePose-uploadBtn" variant="contained">Add pose</Button>
+            <Button id="CreatePose-uploadBtn" variant="contained" onClick={() => uploadData()}>Add pose</Button>
         </div>
     )
 }
