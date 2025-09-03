@@ -15,7 +15,7 @@ function Header() {
                 My Yoga Practice
             </Link>
             <div className="Header-navbar">
-                <Tooltip title="Create" className="tooltip"><AddCircleOutlineIcon onClick={()=> navigate("/add-pose")}/></Tooltip>
+                <Tooltip title="Create" className="tooltip"><AddCircleOutlineIcon onClick={()=> navigate("/add-asana")}/></Tooltip>
                 <Tooltip title="Profile" className="tooltip"><PersonIcon/></Tooltip>
             </div>
         </div>

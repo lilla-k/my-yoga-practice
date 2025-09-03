@@ -1,21 +1,21 @@
-.CreatePose{
+.CreateAsana{
     max-width: 820px;
     margin: auto;
     display: flex;
     flex-direction: column;
 }
 
-.CreatePose > div{
+.CreateAsana > div{
     width: 300px;
     margin: 20px 0;
     background-color: var(--main-color);
 }
 
-.CreatePose-title{
+.CreateAsana-title{
     margin: 40px 0;
 }
 
-.CreatePose-imageSelectorContainer{
+.CreateAsana-imageSelectorContainer{
     min-width: 100%;
     padding: 5px;
     height: 250px;
@@ -23,7 +23,7 @@
     border-radius: 1px;
     border: 1px solid var(--light-text-color);
 }
-.CreatePose-fileInput{
+.CreateAsana-fileInput{
     opacity: 0;
     width: 200px;
     position: absolute;
@@ -31,34 +31,34 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.CreatePose-fileInput:hover{
+.CreateAsana-fileInput:hover{
     cursor: pointer;
 }
-.CreatePose-imageSelectorButton{
+.CreateAsana-imageSelectorButton{
     width: 200px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.CreatePose-imagePreviewContainer{
+.CreateAsana-imagePreviewContainer{
     height: 100%;
     display: flex;
     justify-content: center;
 }
 
-.CreatePose-imageContent{
+.CreateAsana-imageContent{
     width: fit-content;
     position: relative;
     height: 100%;
 
 }
-.CreatePose-image{
+.CreateAsana-image{
     display: block;
     height: 100%;
     
 }
-.CreatePose-imageCloseBtn{
+.CreateAsana-imageCloseBtn{
     position: absolute;
     top: 0;
     right: 0;
@@ -71,7 +71,7 @@
     cursor: pointer;
 }
 
-#CreatePose-uploadBtn{
+#CreateAsana-uploadBtn{
     margin: 50px;
     width: 150px;
     align-self: center;

@@ -2,16 +2,13 @@ import firebaseApp from './firebase.ts';
 import { getFirestore } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, updateMetadata, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
-import type yogaPose from "../types/yogaPose.ts"
+import type yogaAsana from "../types/yogaAsana.ts"
 
 const db = getFirestore(firebaseApp);
 const storage = getStorage();
 
-const yogaPoseServices = {
-    postYogaPose: async function postYogaPose(yogaPoseData: yogaPose, selectedImage: File | null) {
-        console.log("run postYogaPose function")
-        console.log(yogaPoseData);
-        console.log(selectedImage);
+const yogaAsanaServices = {
+    postYogaAsana: async function postYogaAsana(postYogaAsana: yogaAsana, selectedImage: File | null) {
         try {
             if (selectedImage) {
                 const imageId = crypto.randomUUID();
@@ -22,9 +19,9 @@ const yogaPoseServices = {
                 await updateMetadata(imageRef, { cacheControl: 'private,max-age=86400' });
                 const url = await getDownloadURL(imageRef);
                 console.log("url", url)
-                yogaPoseData.imageData = { imageId: imageId, url: url }
+                postYogaAsana.imageData = { imageId: imageId, url: url }
             }
-            const docRef = await addDoc(collection(db, "yogapractice"), yogaPoseData);
+            const docRef = await addDoc(collection(db, "yogapractice"), postYogaAsana);
             return docRef.id;
         }
         catch (e) {
@@ -33,4 +30,4 @@ const yogaPoseServices = {
     }
 }
 
-export default yogaPoseServices;
+export default yogaAsanaServices;

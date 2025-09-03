@@ -1,9 +1,9 @@
 import { useParams, useNavigate } from 'react-router';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import './YogaPoses.css'
+import './YogaAsanas.css'
 
-function YogaPoses() {
+function YogaAsanas() {
 
     const { category } = useParams();
     const navigate = useNavigate();
@@ -15,11 +15,11 @@ function YogaPoses() {
         { name: "inversion", image: "/Copilot_inversion_illustration.png" }
     ]
     return (
-        <div className="YogaPoses">
-            <h1 className="YogaPoses-title">Poses</h1>
+        <div className="YogaAsanas">
+            <h1 className="YogaAsanas-title">Asanas</h1>
             <Tabs
                 value={category}
-                onChange={(e:  React.SyntheticEvent, newValue: string) => navigate(`/yoga-poses/${newValue}`)}
+                onChange={(e:  React.SyntheticEvent, newValue: string) => navigate(`/yoga-asanas/${newValue}`)}
                 aria-label="secondary tabs example"
             >
                 {categories.map(c =>
@@ -30,4 +30,4 @@ function YogaPoses() {
     )
 }
 
-export default YogaPoses;
+export default YogaAsanas;

@@ -9,7 +9,7 @@ function Categories() {
             <h1 className="Categories-title">Categories</h1>
             <div className="Categories-container">
                 {categories.map(c =>
-                    <Link to={`/yoga-poses/${c.name}`} className="Categories-card">
+                    <Link to={`/yoga-asanas/${c.name}`} className="Categories-card">
                         <img src={c.image} alt={c.name} className="Categories-image" />
                         <div className="Categories-name">{c.name}</div>
                     </Link>

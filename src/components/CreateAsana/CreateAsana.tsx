@@ -7,14 +7,12 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import categories from '../../categories.ts';
-import yogaPoseServices from '../../services/yogaPoseService.ts'
-import './CreatePose.css';
+import yogaAsanaServices from '../../services/yogaAsanaService.ts';
+import './CreateAsana.css';
 
-function CreatePose() {
+function CreateAsana() {
 
-    console.log(categories)
-
-    const [poseName, setPoseName] = useState('');
+    const [asanaName, setAsanaName] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [description, setDescription] = useState('');
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
@@ -28,30 +26,27 @@ function CreatePose() {
         }
     };
 
-    const yogaPoseData = {
-        poseName: poseName,
+    const yogaAsanaData = {
+        asanaName: asanaName,
         category: selectedCategory,
         description: description
     }
 
-    console.log(yogaPoseData)
-
     async function uploadData() {
-        console.log("run uploadData function")
-        const yogaPoseId = await yogaPoseServices.postYogaPose(yogaPoseData, selectedImage);
-        console.log("data uploaded with id:" + yogaPoseId);
+        const yogaAsanaId = await yogaAsanaServices.postYogaAsana(yogaAsanaData, selectedImage);
+        console.log("data uploaded with id:" + yogaAsanaId);
     }
 
     return (
-        <div className="CreatePose">
-            <h1 className="CreatePose-title">Add pose</h1>
+        <div className="CreateAsana">
+            <h1 className="CreateAsana-title">Add asana</h1>
             <TextField
-                label="Pose name"
+                label="Asana name"
                 variant="outlined"
                 color="primary"
                 size="small"
-                onChange={(event) => setPoseName(event.target.value)}
-                value={poseName}
+                onChange={(event) => setAsanaName(event.target.value)}
+                value={asanaName}
             />
             <FormControl size="small">
                 <InputLabel>Category</InputLabel>
@@ -72,21 +67,21 @@ function CreatePose() {
                 onChange={(event) => setDescription(event.target.value)}
                 value={description}
             />
-            <div className="CreatePose-imageSelectorContainer">
-                {!previewUrl && <Button variant="outlined" className="CreatePose-imageSelectorButton">+ Upload image</Button>}
-                {!previewUrl && <input className="CreatePose-fileInput" type="file" onChange={handleImageChange} />}
+            <div className="CreateAsana-imageSelectorContainer">
+                {!previewUrl && <Button variant="outlined" className="CreateAsana-imageSelectorButton">+ Upload image</Button>}
+                {!previewUrl && <input className="CreateAsana-fileInput" type="file" onChange={handleImageChange} />}
                 {previewUrl &&
-                    <div className="CreatePose-imagePreviewContainer">
-                        <div className="CreatePose-imageContent">
-                            <img src={previewUrl} alt="preview" className="CreatePose-image" />
-                            <button className="CreatePose-imageCloseBtn" type="button" onClick={() => setPreviewUrl(null)}><CloseIcon /></button>
+                    <div className="CreateAsana-imagePreviewContainer">
+                        <div className="CreateAsana-imageContent">
+                            <img src={previewUrl} alt="preview" className="CreateAsana-image" />
+                            <button className="CreateAsana-imageCloseBtn" type="button" onClick={() => setPreviewUrl(null)}><CloseIcon /></button>
                         </div>
                     </div>
                 }
             </div>
-            <Button id="CreatePose-uploadBtn" variant="contained" onClick={() => uploadData()}>Add pose</Button>
+            <Button id="CreateAsana-uploadBtn" variant="contained" onClick={() => uploadData()}>Add asana</Button>
         </div>
     )
 }
 
-export default CreatePose
+export default CreateAsana;
