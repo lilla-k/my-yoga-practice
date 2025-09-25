@@ -1,5 +1,5 @@
 type yogaAsana = {
-    poseName: string,
+    asanaName: string,
     category: string,
     description: string,
     imageData?: { imageId: string, url: string}

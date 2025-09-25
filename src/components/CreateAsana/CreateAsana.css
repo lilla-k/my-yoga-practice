@@ -72,7 +72,14 @@
 }
 
 #CreateAsana-uploadBtn{
-    margin: 50px;
+    margin-top: 50px;
     width: 150px;
     align-self: center;
+}
+
+.CreateAsana > .CreateAsana-errorMessage, .CreateAsana > .CreateAsana-offlineMessage{
+    color: red;
+    align-self: center;
+    background-color: white;
+    text-align: center;
 }

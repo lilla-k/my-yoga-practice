@@ -9,7 +9,6 @@ const storage = getStorage();
 
 const yogaAsanaServices = {
     postYogaAsana: async function postYogaAsana(postYogaAsana: yogaAsana, selectedImage: File | null) {
-        try {
             if (selectedImage) {
                 const imageId = crypto.randomUUID();
                 console.log(imageId);
@@ -23,10 +22,6 @@ const yogaAsanaServices = {
             }
             const docRef = await addDoc(collection(db, "yogapractice"), postYogaAsana);
             return docRef.id;
-        }
-        catch (e) {
-            console.error("Error adding document: ", e);
-        }
     }
 }
 

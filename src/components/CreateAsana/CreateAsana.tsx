@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router";
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -8,6 +9,7 @@ import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 import categories from '../../categories.ts';
 import yogaAsanaServices from '../../services/yogaAsanaService.ts';
+import Loading from '../Loading/Loading.tsx';
 import './CreateAsana.css';
 
 function CreateAsana() {
@@ -17,6 +19,12 @@ function CreateAsana() {
     const [description, setDescription] = useState('');
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
+    const [offline, setOffline] = useState(false);
+    const [error, setError] = useState(false);
+
+
+    const navigate = useNavigate();
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -32,9 +40,47 @@ function CreateAsana() {
         description: description
     }
 
+    async function getPromiseState(p: Promise<void>) : Promise<string>{    
+        const t = {};
+        try {
+          const v = await Promise.race([p, t]);
+          return (v === t) ? "pending" : "fulfilled";
+        } catch {
+          return "rejected";
+        }
+      }
+      
+
+    async function handleTimeout(func: () => Promise<void>, time: number){
+        const p = func();
+        console.log("promise", p);
+        setTimeout(async()=> {
+            console.log("timer start");
+            const promiseState = await getPromiseState(p);
+            console.log("after 2000 promise state",promiseState);
+            if(promiseState === "pending"){
+                console.log("pending");
+                setOffline(true);
+            }
+        }, time);
+        return () => {
+            clearTimeout(time);
+          };
+    }
+
+
     async function uploadData() {
-        const yogaAsanaId = await yogaAsanaServices.postYogaAsana(yogaAsanaData, selectedImage);
-        console.log("data uploaded with id:" + yogaAsanaId);
+        try {
+            setLoading(true);
+            const yogaAsanaId = await yogaAsanaServices.postYogaAsana(yogaAsanaData, selectedImage);
+            console.log("data uploaded with id:" + yogaAsanaId); 
+            setLoading(false);
+            navigate(`/yoga-asanas/${selectedCategory}`);
+        }
+        catch {
+            setError(true);
+            setLoading(false);
+        }
     }
 
     return (
@@ -79,7 +125,16 @@ function CreateAsana() {
                     </div>
                 }
             </div>
-            <Button id="CreateAsana-uploadBtn" variant="contained" onClick={() => uploadData()}>Add asana</Button>
+            <Button id="CreateAsana-uploadBtn" variant="contained" onClick={() => handleTimeout(uploadData, 2000)}>{loading? <Loading/> : "Add asana"}</Button>
+            {error &&
+             <div className="CreateAsana-errorMessage">
+            Try again later. 
+            </div>}
+            {offline && 
+            <div className="CreateAsana-offlineMessage">
+            You are offline. Data saved locally. We'll upload it once you are back online.
+            </div>
+            }
         </div>
     )
 }
