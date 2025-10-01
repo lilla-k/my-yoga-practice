@@ -4,9 +4,9 @@ import {
 } from "react-router";
 import { createRoot } from 'react-dom/client';
 import Root from './components/Root/Root.tsx';
-import Categories from './components/Categories/Categories.jsx';
-import YogaAsanas from './components/YogaAsanas/YogaAsanas.jsx';
-import CreateAsana from './components/CreateAsana/CreateAsana.jsx';
+import Categories from './components/CategoriesPage/CategoriesPage.js';
+import YogaAsanas from './components/AsanasPage/AsanasPage.js';
+import CreateAsana from './components/CreateAsanaPage/CreateAsanaPage.js';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './utils/theme.ts';
 import ErrorPage from './components/ErrorPage/ErrorPage.tsx';

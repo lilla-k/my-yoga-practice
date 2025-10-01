@@ -1,9 +1,9 @@
 import { useParams, useNavigate } from 'react-router';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import './YogaAsanas.css'
+import './AsanasPage.css'
 
-function YogaAsanas() {
+function AsanasPage() {
 
     const { category } = useParams();
     const navigate = useNavigate();
@@ -15,8 +15,8 @@ function YogaAsanas() {
         { name: "inversion", image: "/Copilot_inversion_illustration.png" }
     ]
     return (
-        <div className="YogaAsanas">
-            <h1 className="YogaAsanas-title">Asanas</h1>
+        <div className="AsanasPage">
+            <h1 className="AsanasPage-title">Asanas</h1>
             <Tabs
                 value={category}
                 onChange={(e:  React.SyntheticEvent, newValue: string) => navigate(`/yoga-asanas/${newValue}`)}
@@ -26,8 +26,9 @@ function YogaAsanas() {
                     <Tab value={c.name} label={c.name} />
                 )}
             </Tabs>
+            
         </div>
     )
 }
 
-export default YogaAsanas;
+export default AsanasPage;

@@ -10,9 +10,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import categories from '../../categories.ts';
 import yogaAsanaServices from '../../services/yogaAsanaService.ts';
 import Loading from '../Loading/Loading.tsx';
-import './CreateAsana.css';
+import './CreateAsanaPage.css';
 
-function CreateAsana() {
+function CreateAsanaPage() {
 
     const [asanaName, setAsanaName] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -84,8 +84,8 @@ function CreateAsana() {
     }
 
     return (
-        <div className="CreateAsana">
-            <h1 className="CreateAsana-title">Add asana</h1>
+        <div className="CreateAsanaPage">
+            <h1 className="CreateAsanaPage-title">Add asana</h1>
             <TextField
                 label="Asana name"
                 variant="outlined"
@@ -113,25 +113,25 @@ function CreateAsana() {
                 onChange={(event) => setDescription(event.target.value)}
                 value={description}
             />
-            <div className="CreateAsana-imageSelectorContainer">
-                {!previewUrl && <Button variant="outlined" className="CreateAsana-imageSelectorButton">+ Upload image</Button>}
-                {!previewUrl && <input className="CreateAsana-fileInput" type="file" onChange={handleImageChange} />}
+            <div className="CreateAsanaPage-imageSelectorContainer">
+                {!previewUrl && <Button variant="outlined" className="CreateAsanaPage-imageSelectorButton">+ Upload image</Button>}
+                {!previewUrl && <input className="CreateAsanaPage-fileInput" type="file" onChange={handleImageChange} />}
                 {previewUrl &&
-                    <div className="CreateAsana-imagePreviewContainer">
-                        <div className="CreateAsana-imageContent">
-                            <img src={previewUrl} alt="preview" className="CreateAsana-image" />
-                            <button className="CreateAsana-imageCloseBtn" type="button" onClick={() => setPreviewUrl(null)}><CloseIcon /></button>
+                    <div className="CreateAsanaPage-imagePreviewContainer">
+                        <div className="CreateAsanaPage-imageContent">
+                            <img src={previewUrl} alt="preview" className="CreateAsanaPage-image" />
+                            <button className="CreateAsanaPage-imageCloseBtn" type="button" onClick={() => setPreviewUrl(null)}><CloseIcon /></button>
                         </div>
                     </div>
                 }
             </div>
-            <Button id="CreateAsana-uploadBtn" variant="contained" onClick={() => handleTimeout(uploadData, 2000)}>{loading? <Loading/> : "Add asana"}</Button>
+            <Button id="CreateAsanaPage-uploadBtn" variant="contained" onClick={() => handleTimeout(uploadData, 2000)}>{loading? <Loading/> : "Add asana"}</Button>
             {error &&
-             <div className="CreateAsana-errorMessage">
+             <div className="CreateAsanaPage-errorMessage">
             Try again later. 
             </div>}
             {offline && 
-            <div className="CreateAsana-offlineMessage">
+            <div className="CreateAsanaPage-offlineMessage">
             You are offline. Data saved locally. We'll upload it once you are back online.
             </div>
             }
@@ -139,4 +139,4 @@ function CreateAsana() {
     )
 }
 
-export default CreateAsana;
+export default CreateAsanaPage;

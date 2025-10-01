@@ -1,21 +1,21 @@
-.CreateAsana{
+.CreateAsanaPage{
     max-width: 820px;
     margin: auto;
     display: flex;
     flex-direction: column;
 }
 
-.CreateAsana > div{
+.CreateAsanaPage > div{
     width: 300px;
     margin: 20px 0;
     background-color: var(--main-color);
 }
 
-.CreateAsana-title{
+.CreateAsanaPage-title{
     margin: 40px 0;
 }
 
-.CreateAsana-imageSelectorContainer{
+.CreateAsanaPage-imageSelectorContainer{
     min-width: 100%;
     padding: 5px;
     height: 250px;
@@ -23,7 +23,7 @@
     border-radius: 1px;
     border: 1px solid var(--light-text-color);
 }
-.CreateAsana-fileInput{
+.CreateAsanaPage-fileInput{
     opacity: 0;
     width: 200px;
     position: absolute;
@@ -31,34 +31,34 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.CreateAsana-fileInput:hover{
+.CreateAsanaPage-fileInput:hover{
     cursor: pointer;
 }
-.CreateAsana-imageSelectorButton{
+.CreateAsanaPage-imageSelectorButton{
     width: 200px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.CreateAsana-imagePreviewContainer{
+.CreateAsanaPage-imagePreviewContainer{
     height: 100%;
     display: flex;
     justify-content: center;
 }
 
-.CreateAsana-imageContent{
+.CreateAsanaPage-imageContent{
     width: fit-content;
     position: relative;
     height: 100%;
 
 }
-.CreateAsana-image{
+.CreateAsanaPage-image{
     display: block;
     height: 100%;
     
 }
-.CreateAsana-imageCloseBtn{
+.CreateAsanaPage-imageCloseBtn{
     position: absolute;
     top: 0;
     right: 0;
@@ -71,13 +71,13 @@
     cursor: pointer;
 }
 
-#CreateAsana-uploadBtn{
+#CreateAsanaPage-uploadBtn{
     margin-top: 50px;
     width: 150px;
     align-self: center;
 }
 
-.CreateAsana > .CreateAsana-errorMessage, .CreateAsana > .CreateAsana-offlineMessage{
+.CreateAsanaPage > .CreateAsanaPage-errorMessage, .CreateAsanaPage > .CreateAsanaPage-offlineMessage{
     color: red;
     align-self: center;
     background-color: white;
