@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import yogaAsanaServices from '../../services/yogaAsanaService.ts';
 import Loading from '../Loading/Loading.tsx';
-import AsanaCard from '../AsanaCard/AsanaCard.tsx'
+import AsanaCard from '../AsanaCard/AsanaCard.tsx';
+import './AsanasList.css';
 
 
 function AsanasList(){
@@ -24,7 +25,7 @@ function AsanasList(){
     }
 
     return(<div>
-        <div>{asanasList.map(asana => <AsanaCard asana={asana}/>)}</div>
+        <div className="AsanasList-gridContainer">{asanasList.map(asana => <AsanaCard asana={asana}/>)}</div>
         {loading && <Loading/>}
     </div>)
 
