@@ -1,8 +1,7 @@
 type yogaAsana = {
-    asanaName: string,
+    name: string,
     category: string,
-    description: string,
-    imageData?: { imageId: string, url: string}
+    image: string
 }
 
 export default yogaAsana;

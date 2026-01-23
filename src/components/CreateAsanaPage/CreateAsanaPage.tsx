@@ -54,11 +54,8 @@ function CreateAsanaPage() {
         const p = func();
         console.log("promise", p);
         setTimeout(async()=> {
-            console.log("timer start");
             const promiseState = await getPromiseState(p);
-            console.log("after 2000 promise state",promiseState);
             if(promiseState === "pending"){
-                console.log("pending");
                 setOffline(true);
             }
         }, time);
@@ -71,13 +68,11 @@ function CreateAsanaPage() {
     async function uploadData() {
         try {
             setLoading(true);
-            const yogaAsanaId = await yogaAsanaServices.postYogaAsana(yogaAsanaData, selectedImage);
-            console.log("data uploaded with id:" + yogaAsanaId); 
+            const yogaAsanaId = await yogaAsanaServices.postYogaAsana(yogaAsanaData, selectedImage); 
             setLoading(false);
             navigate(`/yoga-asanas/${selectedCategory}`);
         }
         catch {
-            console.log("catch")
             setError(true);
             setLoading(false);
         }

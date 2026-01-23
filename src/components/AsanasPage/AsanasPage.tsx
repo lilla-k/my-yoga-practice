@@ -8,7 +8,6 @@ function AsanasPage() {
 
     const { selectedCategory } = useParams();
     const navigate = useNavigate();
-    console.log(selectedCategory);
     const categories = ["all", "sitting", "standing", "supine", "inversion"]
     return (
         <div className="AsanasPage">
