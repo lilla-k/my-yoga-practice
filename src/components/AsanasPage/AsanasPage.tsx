@@ -9,12 +9,7 @@ function AsanasPage() {
     const { selectedCategory } = useParams();
     const navigate = useNavigate();
     console.log(selectedCategory);
-    const categories = [
-        { name: "sitting", image: "/Copilot_sitting_illustration.png" },
-        { name: "standing", image: "/Copilot_standing_illustration.png" },
-        { name: "supine", image: "/Copilot_supine_illustration.png" },
-        { name: "inversion", image: "/Copilot_inversion_illustration.png" }
-    ]
+    const categories = ["all", "sitting", "standing", "supine", "inversion"]
     return (
         <div className="AsanasPage">
             <h1 className="AsanasPage-title">Asanas</h1>
@@ -24,7 +19,7 @@ function AsanasPage() {
                 aria-label="secondary tabs example"
             >
                 {categories.map(c =>
-                    <Tab value={c.name} label={c.name} />
+                    <Tab value={c} label={c} />
                 )}
             </Tabs>
             {selectedCategory && <AsanasList/>}

@@ -7,7 +7,6 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
-import categories from '../../categories.ts';
 import yogaAsanaServices from '../../services/yogaAsanaService.ts';
 import Loading from '../Loading/Loading.tsx';
 import './CreateAsanaPage.css';

@@ -4,9 +4,9 @@ import {
 } from "react-router";
 import { createRoot } from 'react-dom/client';
 import Root from './components/Root/Root.tsx';
-import Categories from './components/CategoriesPage/CategoriesPage.js';
-import YogaAsanas from './components/AsanasPage/AsanasPage.js';
-import CreateAsana from './components/CreateAsanaPage/CreateAsanaPage.js';
+import SequencesPage from './components/SequencesPage/SequencesPage.js';
+import AsanasPage from './components/AsanasPage/AsanasPage.js';
+import CreateAsanaPage from './components/CreateAsanaPage/CreateAsanaPage.js';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './utils/theme.ts';
 import ErrorPage from './components/ErrorPage/ErrorPage.tsx';
@@ -17,9 +17,9 @@ const router = createBrowserRouter([
     ErrorBoundary: ErrorPage,
     Component: Root,
     children: [
-      { path: "/", Component: Categories },
-      { path: "yoga-asanas/:selectedCategory", Component: YogaAsanas },
-      { path: "add-asana", Component: CreateAsana },
+      { path: "/", Component: SequencesPage },
+      { path: "yoga-asanas/:selectedCategory", Component: AsanasPage },
+      { path: "add-asana", Component: CreateAsanaPage },
     ]
   },
 ]);
