@@ -1,13 +1,14 @@
 import { useParams, useNavigate } from 'react-router';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import './AsanasPage.css'
+import AsanasList from '../AsanasList/AsanasList.tsx';
+import './AsanasPage.css';
 
 function AsanasPage() {
 
-    const { category } = useParams();
+    const { selectedCategory } = useParams();
     const navigate = useNavigate();
-    console.log(category);
+    console.log(selectedCategory);
     const categories = [
         { name: "sitting", image: "/Copilot_sitting_illustration.png" },
         { name: "standing", image: "/Copilot_standing_illustration.png" },
@@ -18,7 +19,7 @@ function AsanasPage() {
         <div className="AsanasPage">
             <h1 className="AsanasPage-title">Asanas</h1>
             <Tabs
-                value={category}
+                value={selectedCategory}
                 onChange={(e:  React.SyntheticEvent, newValue: string) => navigate(`/yoga-asanas/${newValue}`)}
                 aria-label="secondary tabs example"
             >
@@ -26,7 +27,7 @@ function AsanasPage() {
                     <Tab value={c.name} label={c.name} />
                 )}
             </Tabs>
-            
+            {selectedCategory && <AsanasList/>}
         </div>
     )
 }

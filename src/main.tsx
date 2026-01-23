@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     Component: Root,
     children: [
       { path: "/", Component: Categories },
-      { path: "yoga-asanas/:category", Component: YogaAsanas },
+      { path: "yoga-asanas/:selectedCategory", Component: YogaAsanas },
       { path: "add-asana", Component: CreateAsana },
     ]
   },

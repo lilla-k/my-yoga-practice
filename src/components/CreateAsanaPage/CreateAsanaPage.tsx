@@ -78,6 +78,7 @@ function CreateAsanaPage() {
             navigate(`/yoga-asanas/${selectedCategory}`);
         }
         catch {
+            console.log("catch")
             setError(true);
             setLoading(false);
         }
