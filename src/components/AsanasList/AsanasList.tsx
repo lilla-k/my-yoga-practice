@@ -17,6 +17,7 @@ function AsanasList(){
     }, [selectedCategory]);
 
     async function fetchAsanasList(){
+        setAsanasList([]);
         setLoading(true);
         const data = await yogaAsanaServices.getYogaAsana(selectedCategory); 
         console.log("asanas", data);

@@ -1,8 +1,23 @@
 .AsanaCard{
     display: block;
-    background: red;
+    border: 1px black dotted;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--dark-main-color);
 }
 
 .AsanaCard-image{
     width: 100%;
+    height: calc(100% - 18px);
+    object-fit: fill;
+}
+
+.AsanaCard-name{
+    position: absolute;
+    font-size: 16px;
+    bottom: 0;
+    left: 50%;
+    color: var(--text-color);
+    transform: translateX(-50%);
 }

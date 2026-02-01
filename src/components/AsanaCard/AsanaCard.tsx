@@ -7,7 +7,7 @@ function AsanaCard({asana}: {asana: Asana}){
     return(
         <div className="AsanaCard">
             <img className="AsanaCard-image" src={`/asanas/${asana.image}`}></img>
-            <div>{asana.name}</div>
+            <div className="AsanaCard-name">{asana.name}</div>
         </div>
     )
 }
