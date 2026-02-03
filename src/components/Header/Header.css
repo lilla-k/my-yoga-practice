@@ -4,11 +4,16 @@
     align-items: center;
     background-color: var(--main-color);
     color: var(--text-color);
-    padding: 15px 50px;
+    padding: 15px 100px;
     gap: 20px;
 }
 
-.Header-title{
+.Header-menu-item:hover{
+    cursor: pointer;
+    color: var(--dark-main-color);
+}
+
+.Header-left{
     text-decoration: none;
     color: var(--text-color);
     height: 50px;
@@ -23,13 +28,11 @@
     height: 100%;
 }
 
-.Header-navbar{
+.Header-center{
     display: flex;
-    gap: 40px;
-}
-
-.Header-navbar:hover{
-    cursor: pointer;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
 }
 
 @media (max-width: 600px) {
