@@ -1,7 +1,7 @@
 .AsanaCard{
     display: block;
+    width: 200px;
     border: 1px black dotted;
-    position: relative;
     border-radius: 10px;
     overflow: hidden;
     background: var(--dark-main-color);
@@ -9,15 +9,18 @@
 
 .AsanaCard-image{
     width: 100%;
-    height: calc(100% - 18px);
-    object-fit: fill;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
-.AsanaCard-name{
-    position: absolute;
+.AsanaCard-details{
     font-size: 16px;
-    bottom: 0;
-    left: 50%;
     color: var(--text-color);
-    transform: translateX(-50%);
+    padding: 4px;
+}
+
+.AsanaCard-sanskrit{
+    font-style: italic;
+    font-size: 12px;
+    padding: 4px;
 }

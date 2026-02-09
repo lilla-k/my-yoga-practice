@@ -26,7 +26,7 @@ function AsanasList(){
     }
 
     return(<div>
-        <div className="AsanasList-gridContainer">{asanasList.map(asana => <AsanaCard asana={asana}/>)}</div>
+        <div className="AsanasList-flexContainer">{asanasList.map(asana => <AsanaCard asana={asana}/>)}</div>
         {loading && <Loading/>}
     </div>)
 
