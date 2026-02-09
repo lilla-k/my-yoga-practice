@@ -25,10 +25,10 @@ const yogaAsanaServices = {
     getYogaAsana: async function getYogaAsana(selectedCategory: string) {
         console.log("selectedCategory", selectedCategory);
         let q;
-        if (selectedCategory === "all"){
+        if (selectedCategory === "all categories"){
             q = query(collection(db, "asanas"));
         } else {
-            q = query(collection(db, "asanas"), where("category", "==", selectedCategory)); 
+            q = query(collection(db, "asanas"), where("categories", "array-contains", selectedCategory)); 
         }
           
         const asanaSnapshot = await getDocs(q);

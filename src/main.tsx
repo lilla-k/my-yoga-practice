@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     Component: Root,
     children: [
       { path: "/", Component: SequencesPage },
-      { path: "yoga-asanas/:selectedCategory", Component: AsanasPage },
+      { path: "yoga-asanas", Component: AsanasPage },
       { path: "add-asana", Component: CreateAsanaPage },
     ]
   },
