@@ -1,19 +1,15 @@
-import { useState } from 'react';
+
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import './AsanasFilter.css';
 
 
-function AsanasFilter() {
+function AsanasFilter({filters, handleChange}) {
+
+    console.log("filters", filters)
     const categories = ["All categories", "Sitting", "Standing", "Supine", "Inversion", "Prone"];
-
-    const [selectedCategory, setSelectedCategory] = useState("All categories",);
-
-    const handleChange = (event: SelectChangeEvent) => {
-        setSelectedCategory(event.target.value as string);
-    };
 
     return (
         <div>
@@ -23,7 +19,7 @@ function AsanasFilter() {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     defaultValue={"All categories"}
-                    value={selectedCategory}
+                    value={filters.selectedCategory}
                     label="Age"
                     onChange={handleChange}
                 >

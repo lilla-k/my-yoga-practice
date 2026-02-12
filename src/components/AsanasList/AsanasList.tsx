@@ -1,26 +1,24 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
 import yogaAsanaServices from '../../services/yogaAsanaService.ts';
 import Loading from '../Loading/Loading.tsx';
 import AsanaCard from '../AsanaCard/AsanaCard.tsx';
 import './AsanasList.css';
 
 
-function AsanasList(){
+function AsanasList({filters}){
 
     const [loading, setLoading] = useState(false);
     const [asanasList, setAsanasList] = useState([]);
-    const { selectedCategory } = useParams();
 
     useEffect(() => {
         fetchAsanasList();
-    }, [selectedCategory]);
+    }, [filters]);
 
     async function fetchAsanasList(){
         setAsanasList([]);
         setLoading(true);
-        const data = await yogaAsanaServices.getYogaAsana(selectedCategory); 
-        console.log("asanas", data);
+        const data = await yogaAsanaServices.getYogaAsana(filters.selectedCategory); 
+        console.log("asanas from server", data);
         setAsanasList(data);
         setLoading(false);
     }
