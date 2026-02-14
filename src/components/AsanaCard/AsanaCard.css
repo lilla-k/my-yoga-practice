@@ -1,10 +1,10 @@
 .AsanaCard{
     display: block;
     width: 200px;
-    border: 1px black dotted;
+    border: 2px black solid;
     border-radius: 10px;
     overflow: hidden;
-    background: var(--dark-main-color);
+    background: var(--light-main-color);
 }
 
 .AsanaCard-image{

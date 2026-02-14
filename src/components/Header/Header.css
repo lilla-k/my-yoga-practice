@@ -10,7 +10,7 @@
 
 .Header-menu-item:hover{
     cursor: pointer;
-    color: var(--dark-main-color);
+    color: var(--light-main-color);
 }
 
 .Header-left{

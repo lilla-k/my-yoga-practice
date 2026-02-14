@@ -1,8 +1,13 @@
 .AsanasPage{
+    background-color: var(--light-main-color);
+    height: 100%;
+}
+
+.AsanasPage-content{
     max-width: 1200px;
     margin: auto;
 }
 
 .AsanasPage-title{
-    margin: 20px 0 10px 0;
+    padding: 40px 0;
 }

@@ -1,6 +1,6 @@
 .ErrorPage{
     background-color: var(--main-color);
-    color: var(--dark-main-color);
+    color: var(--light-main-color);
 }
 
 .ErrorPage-textContainer{
