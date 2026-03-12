@@ -10,12 +10,12 @@
 
 .Header-menu-item:hover{
     cursor: pointer;
-    color: var(--light-main-color);
+    color: var(--light-text-color);
 }
 
 .Header-left{
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--light-secondary-color);
     height: 50px;
     font-size: 30px;
     white-space: nowrap;
