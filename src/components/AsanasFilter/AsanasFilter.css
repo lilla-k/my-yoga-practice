@@ -1,11 +1,12 @@
 .AsanasFilter{
     display: flex;
     gap: 50px;
-    background-color: var(--light-main-color);;
+    background-color: var(--light-main-color);
     border-radius: 5px;
     padding: 5px;
 }
 
 .AsanasFilter div{
     max-width: 300px;
+    color: var(--text-color);
 }

@@ -45,7 +45,7 @@ function AsanasFilter({filters, onFilterChange}) {
                     {levels.map(l => <MenuItem value={l}>{l}</MenuItem>)}
                 </Select>
             </FormControl>
-            <Button variant="contained" onClick={() => onFilterChange(category, level)}>Filter</Button>
+            <Button variant="contained" color= "secondary" onClick={() => onFilterChange(category, level)}>Filter</Button>
         </div>
     )
 }
